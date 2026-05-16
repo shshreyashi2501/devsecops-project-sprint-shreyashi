@@ -28,6 +28,14 @@ jobs:
     - name: Run Gitleaks
       uses: gitleaks/gitleaks-action@v2
 
+    # POLICY GATE
+    - name: Fail if Fake Secret Exists
+      run: |
+        if grep -r "AWS_SECRET_ACCESS_KEY" app/; then
+          echo "SECRET DETECTED - FAILING PIPELINE"
+          exit 1
+        fi
+
     # BUILD IMAGE
     - name: Build Docker Image
       run: |
