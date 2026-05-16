@@ -61,6 +61,13 @@ jobs:
       with:
         directory: terraform/
         soft_fail: true
+    # ---------------- AWS AUTH ----------------
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
 
     # ---------------- TERRAFORM ----------------
     - name: Setup Terraform
