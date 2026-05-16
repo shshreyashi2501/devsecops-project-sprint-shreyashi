@@ -2,8 +2,6 @@ from flask import Flask
 
 app = Flask(__name__)
 
-AWS_SECRET_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
-
 @app.route("/")
 def home():
     return "DevSecOps Pipeline Running"
