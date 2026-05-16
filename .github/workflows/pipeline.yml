@@ -101,7 +101,7 @@ jobs:
 
     # PROD
     - name: Deploy to Production
-    run: |
-      export ENV=prod
-      export PORT=5003
-      nohup python3 app.py &
+      run: |
+        export ENV=prod
+        export PORT=5003
+        nohup python3 app.py &
