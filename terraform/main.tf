@@ -1,5 +1,9 @@
+provider "aws" {
+  region = "us-east-2"
+}
+
 resource "aws_s3_bucket" "example" {
-  bucket = "my-secure-bucket-demo"
+  bucket = "shreyashi-devsecops-demo-2026"
 }
 
 resource "aws_s3_bucket_versioning" "example" {
@@ -7,16 +11,6 @@ resource "aws_s3_bucket_versioning" "example" {
 
   versioning_configuration {
     status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.example.id
-
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
   }
 }
 
