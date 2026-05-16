@@ -2,6 +2,8 @@ from flask import Flask
 
 app = Flask(__name__)
 
+password = "admin123"
+
 @app.route("/")
 def home():
     return "DevSecOps Pipeline Running"
