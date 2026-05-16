@@ -97,11 +97,29 @@ jobs:
 
     # ---------------- CD PIPELINE (SIMULATED) ----------------
 
+    # ---------------- DEPLOY DEV ----------------
     - name: Deploy to Dev
-      run: echo "Deployment SUCCESS → DEV environment (port 5001)"
+      environment: dev
+      run: |
+        echo "Deploying to DEV"
+        export ENV=dev
+        export PORT=5001
+        nohup python3 app.py &
 
+    # ---------------- DEPLOY STAGING ----------------
     - name: Deploy to Staging
-      run: echo "Deployment SUCCESS → STAGING environment (port 5002)"
+      environment: staging
+      run: |
+        echo "Deploying to STAGING"
+        export ENV=staging
+        export PORT=5002
+         nohup python3 app.py &
 
+    # ---------------- DEPLOY PROD ----------------
     - name: Deploy to Production
-      run: echo "Deployment SUCCESS → PROD environment (port 5003)"
+      environment: prod
+      run: |
+        echo "Deploying to PROD"
+        export ENV=prod
+        export PORT=5003
+        nohup python3 app.py &
