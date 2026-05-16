@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-password = "admin123"
+AWS_SECRET_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
 
 @app.route("/")
 def home():
