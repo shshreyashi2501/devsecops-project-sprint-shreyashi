@@ -99,7 +99,6 @@ jobs:
 
     # ---------------- DEPLOY DEV ----------------
     - name: Deploy to Dev
-      environment: dev
       run: |
         echo "Deploying to DEV"
         export ENV=dev
@@ -108,7 +107,6 @@ jobs:
 
     # ---------------- DEPLOY STAGING ----------------
     - name: Deploy to Staging
-      environment: staging
       run: |
         echo "Deploying to STAGING"
         export ENV=staging
@@ -117,7 +115,6 @@ jobs:
 
     # ---------------- DEPLOY PROD ----------------
     - name: Deploy to Production
-      environment: prod
       run: |
         echo "Deploying to PROD"
         export ENV=prod
