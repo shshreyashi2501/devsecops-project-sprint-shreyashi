@@ -26,7 +26,7 @@ jobs:
 
     # SECRET SCAN
     - name: Run Gitleaks
-      uses: gitleaks/gitleaks-action@v2
+      uses: uses: gitleaks/gitleaks-action@v2
 
     # POLICY GATE
     - name: Fail if Fake Secret Exists
@@ -41,6 +41,12 @@ jobs:
       run: |
         cd app
         docker build -t devsecops-app .
+
+    # IaC SCAN
+    - name: Run Checkov
+      uses: bridgecrewio/checkov-action@master
+      with:
+        directory: terraform/
 
     # CONTAINER SCAN
     - name: Run Trivy Scan
