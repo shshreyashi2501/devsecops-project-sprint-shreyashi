@@ -83,16 +83,25 @@ jobs:
     - name: Run Trivy Scan
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: 'devsecops-app'
+        image-ref: 'devsecops'
 
-    # DEPLOY DEV
+    # DEV
     - name: Deploy to Dev
-      run: echo "Deploying to Dev Environment"
+      run: |
+        export ENV=dev
+        export PORT=5001
+        nohup python3 app.py &
 
-    # DEPLOY STAGING
+    # STAGING
     - name: Deploy to Staging
-      run: echo "Deploying to Staging Environment"
+      run: |
+        export ENV=staging
+        export PORT=5002
+        nohup python3 app.py &
 
-    # DEPLOY PROD
+    # PROD
     - name: Deploy to Production
-      run: echo "Deploying to Production Environment"
+    run: |
+      export ENV=prod
+      export PORT=5003
+      nohup python3 app.py &
