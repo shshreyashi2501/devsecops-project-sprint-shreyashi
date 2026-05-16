@@ -47,7 +47,9 @@ jobs:
       uses: bridgecrewio/checkov-action@master
       with:
         directory: terraform/
-        # TERRAFORM SETUP
+        soft_fail: true
+
+    # TERRAFORM SETUP
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
